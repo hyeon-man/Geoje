@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tour">
+    <select id="list" resultType="Tour">
+        SELECT * FROM tour
+    </select>
+
+    <delete id="delete">
+        DELETE FROM tour WHERE tour_num=#{tourNum}
+    </delete>
+
+    <insert id="add">
+        INSERT INTO tour (tour_num, tour_detail, tour_title)
+        VALUES (NULL, #{tourDetail}, #{tourTitle})
+    </insert>
+
+    <update id="update">
+        UPDATE tour SET tour_detail=#{tourDetail}, tour_title=#{tourTitle}
+        WHERE tour_num=#{tourNum}
+    </update>
+
+    <select id="item" resultType="Tour">
+        SELECT * FROM tour WHERE tour_num=#{tourNum}
+    </select>
+
+</mapper>

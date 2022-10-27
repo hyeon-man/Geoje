@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="festival">
+    <select id="list" resultType="Festival">
+        SELECT * FROM festival
+    </select>
+
+    <delete id="delete">
+        DELETE FROM festival
+        WHERE festival_num=#{festivalNum}
+    </delete>
+
+    <insert id="add">
+        INSERT INTO festival (festival_num, festival_detail, festival_title)
+        VALUES (NULL, #{festivalDetail}, #{festivalTitle})
+    </insert>
+
+    <update id="update">
+        UPDATE festival SET festival_detail=#{festivalDetail}, festival_title=#{festivalTitle}
+        WHERE festival_num=#{festivalNum}
+    </update>
+
+    <select id="item" resultType="Festival">
+        SELECT * FROM festival
+        WHERE festival_num=#{festivalNum}
+    </select>
+
+</mapper>
